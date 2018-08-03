@@ -33,8 +33,20 @@ document.onkeyup = function (event) {
   function newLetter() {
   answer = String.fromCharCode(97+Math.floor(Math.random() * 26));
 };
+
+  // for (var i = 0; i < guessArray.length; i++) {
+    
+  // }
+
+  // var noRepeat = function (guessArray, guess) {
+
+  // }
+
+  // checks user guesses against the guess array to prevent repeat guesses
+  var noRepeat = guessArray.indexOf(guess); 
+
   
-  if (guess >= "a" && guess <= "z" && lives > 1) {
+  if (guess >= "a" && guess <= "z" && lives > 1 && noRepeat < 0) {
     if (guess === answer) {
       wins++;
       endRound();
@@ -51,7 +63,7 @@ document.onkeyup = function (event) {
   
   }
 
-  else if (guess >= "a" && guess <= "z" && lives === 1) {
+  else if (guess >= "a" && guess <= "z" && lives === 1 && noRepeat < 0) {
     if (guess === answer) {
       wins++;
       endRound();
